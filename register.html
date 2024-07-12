@@ -78,7 +78,6 @@
                 },
                 body: JSON.stringify({ username, email, password, password2 })
             });
-
             const data = await response.json();
 
             if (response.ok) {

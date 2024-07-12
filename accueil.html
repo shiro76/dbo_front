@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Page</title>
+</head>
+<body>
+    <h1>Profile Information</h1>
+    <div id="profile"></div>
+    <a href="admin_board.html">admin_dashboard</a>
+    <button id="logoutBtn">Logout</button>
+
+    <script>
+        const token = localStorage.getItem('token');
+        document.addEventListener('DOMContentLoaded', async function() {
+            const response = await fetch('http://92.149.100.38:3000/home', {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}` // Assurez-vous que le token est envoyé
+                }
+            });
+
+            const data = await response.json();
+
+            if (response.ok) {
+                const profileDiv = document.getElementById('profile');
+                profileDiv.innerHTML = `Username: ${data.username}`; // Afficher le nom d'utilisateur
+            } else {
+                console.error(data.error);
+            }
+        });
+
+        document.getElementById('logoutBtn').addEventListener('click', function() {
+            localStorage.removeItem('token');
+            window.location.href = 'login.html';
+        });
+    </script>
+</body>
+</html>

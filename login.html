@@ -66,8 +66,8 @@
             const username = document.getElementById('username').value;
             const password = document.getElementById('password').value;
             const errorsDiv = document.getElementById('errors');
-
-            const response = await fetch('http://92.149.100.38:3000/auth/login', {
+            //http://92.149.100.38:3000/auth/login
+            const response = await fetch('http://213.130.147.121:3000/auth/login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

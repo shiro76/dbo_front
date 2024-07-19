@@ -71,7 +71,7 @@
             const password2 = document.getElementById('password2').value;
             const errorsDiv = document.getElementById('errors');
 
-            const response = await fetch('https://api.dbo-rebirth.online/auth/signup', {
+            const response = await fetch('http://92.149.100.38:3000/auth/signup', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -84,9 +84,16 @@
                 //window.location.href = 'register_success.html';
                 alert('User registered successfully');
                 window.location.href = 'login.html';
-                errorsDiv.innerHTML = '';
+                errorsDiv.innerHTML = '';                
             } else {
-                errorsDiv.innerHTML = data.errors.join('<br>');
+                for (x in data.errors){
+                  x++;
+                //   console.log(data.errors[x]);
+                  console.error(data.errors[x].msg)
+                  errorsDiv.innerHTML = data.errors[x].msg;
+                };
+                // errorsDiv.innerHTML = data.errors.join('<br>');
+                // console.log(data.errors.msg);
             }
         });
     </script>

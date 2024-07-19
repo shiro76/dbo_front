@@ -71,7 +71,8 @@
             const password2 = document.getElementById('password2').value;
             const errorsDiv = document.getElementById('errors');
 
-            const response = await fetch('http://92.149.100.38:3000/auth/signup', {
+            //http://92.149.100.38:3000/auth/signup
+            const response = await fetch('https://api.dbo-rebirth.online/auth/signup', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

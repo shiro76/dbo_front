@@ -86,12 +86,19 @@
                 window.location.href = 'login.html';
                 errorsDiv.innerHTML = '';                
             } else {
+                let messages = [];
                 for (x in data.errors){
-                  x++;
-                //   console.log(data.errors[x]);
-                  console.error(data.errors[x].msg)
-                  errorsDiv.innerHTML = data.errors[x].msg;
-                };
+                    x++;
+                    if(x > 0, data.errors[x] != undefined){
+                        messages = ' '+data.errors[x].msg;
+                        console.error(data.errors[x].msg);
+                        alert(messages);
+                        //alert(msg)
+                        console.error(data.errors[x]);      
+                        //errorsDiv.innerHTML = data.errors[x].msg;
+                    }
+
+                }
                 // errorsDiv.innerHTML = data.errors.join('<br>');
                 // console.log(data.errors.msg);
             }

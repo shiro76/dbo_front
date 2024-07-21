@@ -1,9 +1,9 @@
 body {
     background-image: url('../image/1.jpg');
-    object-fit: cover;
+    background-size: contain;
     font-family: Arial, sans-serif;
-    color: #343a40;
-    padding: 20px;
+    /* color: #343a40;
+    padding: 20px; */
 }
 .header{
     /* border: 2px solid black; */
@@ -12,9 +12,14 @@ body {
     text-decoration: none;
 }
 
-a{
+header a{
     text-decoration: none;
     font-size: 20px;
+    color: orange;
+}
+header a:hover{
+    text-decoration: none;
+    color: red;
 }
 
 .container {
@@ -24,6 +29,7 @@ a{
     background-color: #ffffff00;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
+    z-index: 1;
 }
 
 .row {
